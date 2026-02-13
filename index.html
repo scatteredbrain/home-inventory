@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Inventory Organizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Home Inventory Organizer</h1>
+        <div id="search-bar">
+            <input type="text" id="search-input" placeholder="Search for an item...">
+            <button id="search-btn">Search</button>
+        </div>
+    </header>
+
+    <div id="search-results" class="hidden">
+        <div class="panel-header">
+            <h2>Search Results</h2>
+            <button id="close-search" class="btn-close">&times;</button>
+        </div>
+        <div id="search-results-list"></div>
+    </div>
+
+    <main>
+        <nav id="sidebar">
+            <div class="panel-header">
+                <h2>Rooms</h2>
+                <button id="add-room-btn" class="btn-add" title="Add Room">+</button>
+            </div>
+            <ul id="room-tree"></ul>
+        </nav>
+
+        <section id="content">
+            <div id="welcome-msg">
+                <h2>Welcome!</h2>
+                <p>Start by adding a room using the <strong>+</strong> button in the sidebar.</p>
+                <p>Then select a room to add containers (furniture, drawers, shelves, etc.) and items.</p>
+            </div>
+
+            <div id="room-view" class="hidden">
+                <div id="breadcrumb"></div>
+
+                <div id="room-detail">
+                    <div class="section-header">
+                        <h2 id="room-name-display"></h2>
+                        <div class="room-actions">
+                            <button id="add-subroom-btn" class="btn-action">+ Sub-room</button>
+                            <button id="add-container-btn" class="btn-action">+ Container</button>
+                            <button id="rename-room-btn" class="btn-action btn-secondary">Rename</button>
+                            <button id="delete-room-btn" class="btn-action btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                    <div id="subrooms-section">
+                        <h3>Sub-rooms</h3>
+                        <div id="subrooms-list" class="card-grid"></div>
+                        <p id="no-subrooms" class="empty-msg">No sub-rooms yet.</p>
+                    </div>
+
+                    <div id="containers-section">
+                        <h3>Containers</h3>
+                        <div id="containers-list" class="card-grid"></div>
+                        <p id="no-containers" class="empty-msg">No containers yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="container-view" class="hidden">
+                <div id="container-breadcrumb"></div>
+
+                <div id="container-detail">
+                    <div class="section-header">
+                        <h2 id="container-name-display"></h2>
+                        <div class="room-actions">
+                            <button id="add-subcontainer-btn" class="btn-action">+ Sub-container</button>
+                            <button id="add-item-btn" class="btn-action">+ Item</button>
+                            <button id="rename-container-btn" class="btn-action btn-secondary">Rename</button>
+                            <button id="delete-container-btn" class="btn-action btn-danger">Delete</button>
+                        </div>
+                    </div>
+
+                    <div id="subcontainers-section">
+                        <h3>Sub-containers</h3>
+                        <div id="subcontainers-list" class="card-grid"></div>
+                        <p id="no-subcontainers" class="empty-msg">No sub-containers yet.</p>
+                    </div>
+
+                    <div id="items-section">
+                        <h3>Items</h3>
+                        <div id="items-list"></div>
+                        <p id="no-items" class="empty-msg">No items yet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal-overlay" class="hidden">
+        <div id="modal">
+            <h3 id="modal-title"></h3>
+            <input type="text" id="modal-input" placeholder="">
+            <div id="modal-buttons">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
